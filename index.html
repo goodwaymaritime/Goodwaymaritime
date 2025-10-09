@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goodway Maritime - Premier Marine Training Institute</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0a2e38 0%, #1a5a6c 100%);
+        }
+        .wave-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .wave-shape svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+        .wave-shape .shape-fill {
+            fill: #FFFFFF;
+        }
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #38b2ac;
+            transition: width .3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Dark Mode Styles */
+        :root {
+            --bg-color-light: #f9fafb;
+            --bg-color-white: #ffffff;
+            --text-color-dark: #1f2937;
+            --text-color-gray: #4b5563;
+            --text-color-gray-700: #374151;
+            --text-color-gray-600: #4b5563;
+            --border-color-gray: #e5e7eb;
+            --card-bg-gray: #f9fafb;
+        }
+
+        .dark-mode {
+            --bg-color-light: #1f2937;
+            --bg-color-white: #111827;
+            --text-color-dark: #e5e7eb;
+            --text-color-gray: #9ca3af;
+            --text-color-gray-700: #d1d5db;
+            --text-color-gray-600: #9ca3af;
+            --border-color-gray: #374151;
+            --card-bg-gray: #111827;
+        }
+
+        body.dark-mode, .dark-mode .bg-gray-50 {
+            background-color: #1f2937 !important;
+        }
+        body.dark-mode .bg-white, .dark-mode .bg-white {
+            background-color: #111827 !important;
+        }
+        body.dark-mode .text-gray-900, .dark-mode .text-gray-900 {
+            color: #e5e7eb !important;
+        }
+        body.dark-mode .text-gray-700, .dark-mode .text-gray-700 {
+            color: #d1d5db !important;
+        }
+        body.dark-mode .text-gray-600, .dark-mode .text-gray-600 {
+            color: #9ca3af !important;
+        }
+        body.dark-mode .border-gray-300, .dark-mode .border-gray-300 {
+            border-color: #374151 !important;
+        }
+        body.dark-mode .bg-gray-50, .dark-mode .bg-gray-50 {
+            background-color: #111827 !important;
+        }
+        body.dark-mode .bg-gray-50 .flow-root, .dark-mode .bg-gray-50 .flow-root {
+            background-color: #111827 !important;
+        }
+        body.dark-mode .bg-blue-50, .dark-mode .bg-blue-50 {
+            background-color: #1f2937 !important;
+        }
+        body.dark-mode .text-black {
+            color: #e5e7eb !important;
+        }
+        body.dark-mode .flow-root.bg-gray-50 {
+            background-color: #111827 !important;
+        }
+        body.dark-mode .course-card.bg-white {
+            background-color: #111827 !important;
+        }
+        body.dark-mode .bg-white.p-4 {
+            background-color: #111827 !important;
+        }
+        body.dark-mode .text-gray-400 {
+            color: #9ca3af !important;
+        }
+
+        /* Fix the white text issue on the form */
+        #contact-form input,
+        #contact-form textarea {
+            color: var(--text-color-dark) !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img class="h-10 w-auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfIoo-y25nkP3nWteyrzTSGaUSu6vpCgUCdw&s" alt="Goodway Maritime Logo">
+                        <span class="ml-2 text-xl font-bold text-blue-900">Goodway Maritime</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#home" class="nav-link text-gray-900 hover:text-teal-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-900 hover:text-teal-600 px-3 py-2 text-sm font-medium">About</a>
+                    <a href="#services" class="nav-link text-gray-900 hover:text-teal-600 px-3 py-2 text-sm font-medium">Services</a>
+                    <a href="#courses" class="nav-link text-gray-900 hover:text-teal-600 px-3 py-2 text-sm font-medium">Courses</a>
+                    <a href="#admission" class="nav-link text-gray-900 hover:text-teal-600 px-3 py-2 text-sm font-medium">Admission</a>
+                    <a href="#contact" class="nav-link text-gray-900 hover:text-teal-600 px-3 py-2 text-sm font-medium">Contact</a>
+                    <a href="#apply" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300">Apply Now</a>
+                    <button id="theme-toggle" class="p-2 rounded-full text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 transition duration-300">
+                        <i data-feather="moon" class="h-5 w-5" id="moon-icon"></i>
+                        <i data-feather="sun" class="h-5 w-5 hidden" id="sun-icon"></i>
+                    </button>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-full text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 transition duration-300 mr-2">
+                        <i data-feather="moon" class="h-5 w-5" id="moon-icon-mobile"></i>
+                        <i data-feather="sun" class="h-5 w-5 hidden" id="sun-icon-mobile"></i>
+                    </button>
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-button">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="hidden md:hidden bg-white shadow-lg" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-teal-600 hover:bg-gray-50">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-teal-600 hover:bg-gray-50">About</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-teal-600 hover:bg-gray-50">Services</a>
+                <a href="#courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-teal-600 hover:bg-gray-50">Courses</a>
+                <a href="#admission" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-teal-600 hover:bg-gray-50">Admission</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-teal-600 hover:bg-gray-50">Contact</a>
+                <a href="#apply" class="block w-full text-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md text-base font-medium transition duration-300">Apply Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative hero-gradient text-white pt-24 pb-32 overflow-hidden">
+        <div id="vanta-waves" class="absolute inset-0"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                <div class="mt-12 sm:mt-16 lg:mt-0" data-aos="fade-right">
+                    <div class="sm:max-w-xl">
+                        <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                            Chart Your Course to a <span class="text-teal-300">Maritime Career</span>
+                        </h1>
+                        <p class="mt-6 text-xl text-gray-300">
+                            Established in 2019, Goodway Marine Training and Services stands as a beacon of guidance for maritime enthusiasts with a track record of successfully steering 180 students across 7 batches towards rewarding careers.
+                        </p>
+                        <div class="mt-10 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                            <a href="#courses" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-900 bg-teal-300 hover:bg-teal-400 md:py-4 md:text-lg md:px-10 transition duration-300">
+                                Explore Courses
+                            </a>
+                            <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-900 bg-opacity-60 hover:bg-opacity-70 md:py-4 md:text-lg md:px-10 transition duration-300">
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 relative lg:mt-0" data-aos="fade-left">
+                    <div class="relative mx-auto w-full rounded-lg shadow-lg overflow-hidden">
+                        <img class="w-full h-auto" src="https://images.pexels.com/photos/33912089/pexels-photo-33912089.jpeg" alt="Maritime training">
+                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900 to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-2xl font-bold text-white">180+ Students Trained</h3>
+                            <p class="mt-2 text-teal-200">Across 7 successful batches</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-shape">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-teal-600 font-semibold tracking-wide uppercase">Why Choose Us</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Your Trusted Partner in Maritime Education
+                </p>
+            </div>
+            <div class="mt-10">
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="pt-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8 h-full">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-teal-500 rounded-md shadow-lg">
+                                        <i data-feather="award" class="h-6 w-6 text-white"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">DG Approved Partners</h3>
+                                <p class="mt-5 text-base text-gray-600">
+                                    Collaborations with colleges meeting regulatory standards.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8 h-full">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-teal-500 rounded-md shadow-lg">
+                                        <i data-feather="life-buoy" class="h-6 w-6 text-white"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">End-to-End Support</h3>
+                                <p class="mt-5 text-base text-gray-600">
+                                    From course selection to job placement, we've got you covered.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8 h-full">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-teal-500 rounded-md shadow-lg">
+                                        <i data-feather="file-text" class="h-6 w-6 text-white"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Document Accuracy</h3>
+                                <p class="mt-5 text-base text-gray-600">
+                                    Ensuring all certificates and documents meet industry standards.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8 h-full">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-teal-500 rounded-md shadow-lg">
+                                        <i data-feather="users" class="h-6 w-6 text-white"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Placement Assistance</h3>
+                                <p class="mt-5 text-base text-gray-600">
+                                    Connecting our students with promising opportunities in the industry.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="relative" data-aos="fade-right">
+                    <div class="relative rounded-lg shadow-xl overflow-hidden">
+                        <img class="w-full h-auto" src="http://static.photos/education/640x360/15" alt="About Goodway Maritime">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-transparent opacity-50"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-bold text-white">Strategic Partnerships</h3>
+                            <p class="mt-1 text-teal-200">With 4 reputed maritime colleges in India</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 grid grid-cols-2 gap-4">
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                            <img class="w-full h-32 object-cover" src="http://static.photos/education/320x240/1" alt="Training">
+                        </div>
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                            <img class="w-full h-32 object-cover" src="http://static.photos/education/320x240/2" alt="Students">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 lg:mt-0" data-aos="fade-left">
+                    <h2 class="text-3xl font-extrabold text-gray-900">
+                        About <span class="text-teal-600">Goodway Maritime</span>
+                    </h2>
+                    <div class="mt-6 text-gray-600 space-y-4">
+                        <p>
+                            Established in 2019, Goodway Marine Training and Services stands as a beacon of guidance for maritime enthusiasts with a track record of successfully steering 180 students across 7 batches towards rewarding careers.
+                        </p>
+                        <p>
+                            We pride ourselves on offering specialized services such as personalized pre-sea counseling and comprehensive support for IMU entrance examinations. At Goodway, we simplify the journey to a maritime career by handling all documentation, including medical clearance.
+                        </p>
+                        <p>
+                            Our commitment extends beyond training, as we actively provide placement assistance, connecting our students with promising opportunities in the maritime industry.
+                        </p>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="text-xl font-bold text-gray-900">Our Mission</h3>
+                        <div class="mt-4 p-6 bg-white rounded-lg shadow-md">
+                            <p class="italic text-gray-700">
+                                "At Goodway Marine Training & Services, our mission is to foster complete awareness about the marine industry and emphasize the significance of marine courses and careers. We are dedicated to guiding students in selecting the most suitable course based on their educational qualifications, physical fitness, financial stability, and age."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-teal-600 font-semibold tracking-wide uppercase">What We Offer</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Comprehensive Services for Your Maritime Journey
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
+                    From awareness to placement, we guide you at every step of your maritime career.
+                </p>
+            </div>
+            <div class="mt-16">
+                <div class="space-y-16">
+                    <div class="flex flex-col md:flex-row gap-8 items-center" data-aos="fade-up">
+                        <div class="flex-shrink-0 md:w-1/3">
+                            <div class="flex items-center justify-center h-48 w-full rounded-md bg-teal-50 text-teal-600">
+                                <i data-feather="compass" class="h-16 w-16"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-bold text-gray-900">Complete Awareness of Marine Courses</h3>
+                            <div class="mt-4 text-gray-600 space-y-4">
+                                <p>In-depth understanding of the diverse marine courses available.</p>
+                                <p>Detailed information on eligibility, duration, and career prospects for each course.</p>
+                                <p>Personalized guidance based on individual educational qualifications and preferences.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-8 items-center" data-aos="fade-up">
+                        <div class="flex-shrink-0 md:w-1/3 md:order-last">
+                            <div class="flex items-center justify-center h-48 w-full rounded-md bg-blue-50 text-blue-600">
+                                <i data-feather="book-open" class="h-16 w-16"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-bold text-gray-900">Admission Assistance in DG Approved Colleges</h3>
+                            <div class="mt-4 text-gray-600 space-y-4">
+                                <p>Expert assistance in the admission process for colleges approved by the Directorate General of Shipping (DG).</p>
+                                <p>Ensuring compliance with all regulatory requirements for maritime education.</p>
+                                <p>Facilitation of medical examinations to meet the stringent health standards required for maritime courses.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-8 items-center" data-aos="fade-up">
+                        <div class="flex-shrink-0 md:w-1/3">
+                            <div class="flex items-center justify-center h-48 w-full rounded-md bg-teal-50 text-teal-600">
+                                <i data-feather="file-text" class="h-16 w-16"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-bold text-gray-900">Certification and Document Preparation</h3>
+                            <div class="mt-4 text-gray-600 space-y-4">
+                                <p>Facilitating the acquisition of essential certifications, including Indos number, course certificates, STCW (Standards of Training, Certification and Watchkeeping), CDC (Continuous Discharge Certificate), and Yellow Card.</p>
+                                <p>Ensuring all documents are prepared accurately and in compliance with industry standards.</p>
+                                <p>Assistance in preparing for job interviews and industry-specific requirements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="courses" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-base text-teal-600 font-semibold tracking-wide uppercase">Our Programs</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Maritime Courses We Offer
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+                    Comprehensive training programs approved by DG Shipping, Govt. of India
+                </p>
+            </div>
+            <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div class="course-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-blue-600 flex items-center justify-center">
+                        <i data-feather="anchor" class="h-16 w-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">GP Rating (General Purpose Rating)</h3>
+                        <div class="mt-4 space-y-2 text-gray-600">
+                            <p class="flex items-center">
+                                <i data-feather="clock" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Duration: 6 Months</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i data-feather="user" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Age: 18 to 25 years</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i data-feather="book" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Qualification: 10th pass or +2 and above</span>
+                            </p>
+                        </div>
+                        <div class="mt-6">
+                            <a href="#contact" class="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium">
+                                Learn more
+                                <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-teal-600 flex items-center justify-center">
+                        <i data-feather="cpu" class="h-16 w-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">ETO (Electro Technical Officer)</h3>
+                        <div class="mt-4 space-y-2 text-gray-600">
+                            <p class="flex items-center">
+                                <i data-feather="clock" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Duration: 4 months</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i data-feather="user" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Age: 18 to 35 years</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i data-feather="book" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Qualification: 10+2 pass with PCM English</span>
+                            </p>
+                        </div>
+                        <div class="mt-6">
+                            <a href="#contact" class="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium">
+                                Learn more
+                                <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 bg-blue-900 flex items-center justify-center">
+                        <i data-feather="navigation" class="h-16 w-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">BSc Nautical Science</h3>
+                        <div class="mt-4 space-y-2 text-gray-600">
+                            <p class="flex items-center">
+                                <i data-feather="clock" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Duration: 3 year</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i data-feather="user" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Age: 18 to 25 years</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i data-feather="book" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Qualification: +2 (Science) pass with 70% overall score</span>
+                            </p>
+                        </div>
+                        <div class="mt-6">
+                            <a href="#contact" class="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium">
+                                Learn more
+                                <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-teal-800 flex items-center justify-center">
+                        <i data-feather="settings" class="h-16 w-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">B-Tech Marine Engineering</h3>
+                        <div class="mt-4 space-y-2 text-gray-600">
+                            <p class="flex items-center">
+                                <i data-feather="clock" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Duration: 4 years</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i data-feather="user" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Age: 18 to 25 years</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i data-feather="book" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Qualification: +2 (Science) pass with 70% overall score</span>
+                            </p>
+                        </div>
+                        <div class="mt-6">
+                            <a href="#contact" class="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium">
+                                Learn more
+                                <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-blue-700 flex items-center justify-center">
+                        <i data-feather="map" class="h-16 w-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">DNS (Diploma in Nautical Science)</h3>
+                        <div class="mt-4 space-y-2 text-gray-600">
+                            <p class="flex items-center">
+                                <i data-feather="clock" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Duration: 1 years</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i data-feather="user" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Age: 18 to 25 years</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i data-feather="book" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Qualification: +2 (Science) pass with 70% overall score</span>
+                            </p>
+                        </div>
+                        <div class="mt-6">
+                            <a href="#contact" class="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium">
+                                Learn more
+                                <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 bg-teal-700 flex items-center justify-center">
+                        <i data-feather="briefcase" class="h-16 w-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">CCMC (Certificate Course of Marine Catering)</h3>
+                        <div class="mt-4 space-y-2 text-gray-600">
+                            <p class="flex items-center">
+                                <i data-feather="clock" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Duration: 6 Months</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i data-feather="user" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Age: 18 to 25 years</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i data-feather="book" class="h-4 w-4 mr-2 text-teal-600"></i>
+                                <span>Qualification: Bachelor's Degree in any specialization with at least 60%</span>
+                            </p>
+                        </div>
+                        <div class="mt-6">
+                            <a href="#contact" class="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium">
+                                Learn more
+                                <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="admission" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-teal-600 font-semibold tracking-wide uppercase">Join Us</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Admission Procedure
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
+                    Follow these steps to begin your maritime journey with Goodway
+                </p>
+            </div>
+            <div class="mt-16">
+                <div class="space-y-12">
+                    <div class="flex flex-col md:flex-row gap-8 items-center" data-aos="fade-up">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-16 w-16 rounded-full bg-teal-100 text-teal-600">
+                                <span class="text-xl font-bold">1</span>
+                            </div>
+                        </div>
+                        <div class="md:flex-1">
+                            <h3 class="text-xl font-bold text-gray-900">Application Submission</h3>
+                            <div class="mt-4 text-gray-600 space-y-4">
+                                <p>Submit the application form along with the following documents:</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Copy of mark sheet of 10th/+2/others</li>
+                                    <li>Copy of Passport and Aadhar</li>
+                                    <li>Medical Certificate</li>
+                                    <li>Latest Passport size color photographs (4 nos) with a white background</li>
+                                    <li>Duly signed application by Parent/Guardian of the candidate</li>
+                                    <li>Course registration fee of Rs. 25,000/- (non-refundable)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-8 items-center" data-aos="fade-up">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-16 w-16 rounded-full bg-teal-100 text-teal-600">
+                                <span class="text-xl font-bold">2</span>
+                            </div>
+                        </div>
+                        <div class="md:flex-1">
+                            <h3 class="text-xl font-bold text-gray-900">Selection Process</h3>
+                            <div class="mt-4 text-gray-600 space-y-4">
+                                <p>Candidates will be selected based on:</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Merit basis in entrance tests</li>
+                                    <li>Interview (in-person, phone, or zoom interview)</li>
+                                    <li>Good spoken English skills</li>
+                                </ul>
+                                <p>All candidates must attend the IMU entrance exam for long-term courses (one year and above).</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-8 items-center" data-aos="fade-up">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-16 w-16 rounded-full bg-teal-100 text-teal-600">
+                                <span class="text-xl font-bold">3</span>
+                            </div>
+                        </div>
+                        <div class="md:flex-1">
+                            <h3 class="text-xl font-bold text-gray-900">Eligibility Criteria</h3>
+                            <div class="mt-4 text-gray-600 space-y-4">
+                                <p><strong>Physical, Medical, and Mental Fitness:</strong></p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Candidates must be physically, medically, and mentally fit for sea services according to standard norms</li>
+                                    <li>Eyesight should be 6/6 with no color blindness</li>
+                                    <li>Provide a certified medical certificate from a DG Shipping approved doctor</li>
+                                </ul>
+                                <p><strong>Educational Qualifications:</strong></p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Candidates should have passed the 10th standard or its equivalent from a recognized board</li>
+                                    <li>Minimum 40% aggregate in class X</li>
+                                    <li>At least 40% in English in 10th or 12th standards</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-16 bg-blue-50 rounded-lg p-8" data-aos="fade-up">
+                    <h3 class="text-xl font-bold text-gray-900">Rules and Regulations</h3>
+                    <div class="mt-6 grid gap-6 md:grid-cols-2">
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <ul class="space-y-4 text-gray-600">
+                                <li class="flex items-start">
+                                    <i data-feather="x-circle" class="flex-shrink-0 h-5 w-5 text-red-500 mr-2 mt-0.5"></i>
+                                    <span>The use of alcohol, tobacco, or intoxicants in any form on the campus/institution is strictly prohibited.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="x-circle" class="flex-shrink-0 h-5 w-5 text-red-500 mr-2 mt-0.5"></i>
+                                    <span>The usage of mobile phones on the campus during the training time is strictly prohibited.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="x-circle" class="flex-shrink-0 h-5 w-5 text-red-500 mr-2 mt-0.5"></i>
+                                    <span>No candidate is permitted to leave the academy without prior permission.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <ul class="space-y-4 text-gray-600">
+                                <li class="flex items-start">
+                                    <i data-feather="alert-circle" class="flex-shrink-0 h-5 w-5 text-yellow-500 mr-2 mt-0.5"></i>
+                                    <span>Students should attend classes punctually. The attendance required for appearing in the final examination is 95%.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="alert-circle" class="flex-shrink-0 h-5 w-5 text-yellow-500 mr-2 mt=0.5"></i>
+                                    <span>All fees, once paid, are non-refundable, both in part or in full.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="alert-circle" class="flex-shrink-0 h-5 w-5 text-yellow-500 mr-2 mt=0.5"></i>
+                                    <span>The management has the right to take any kind of action against candidates in case of a violation of the academy's rules.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-base text-teal-600 font-semibold tracking-wide uppercase">Our Journey</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Previous Batches
+                </p>
+            </div>
+            <div class="mt-12 grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="rounded-lg overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <img class="w-full h-64 object-cover" src="http://static.photos/education/640x360/3" alt="2024 July Batch">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-medium text-gray-900">2024 July Batch</h3>
+                        <p class="mt-1 text-sm text-gray-600">40 Students at Chennai Central</p>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <img class="w-full h-64 object-cover" src="http://static.photos/education/640x360/4" alt="2023 July Batch">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-medium text-gray-900">2023 July Batch</h3>
+                        <p class="mt-1 text-sm text-gray-600">Chennai Police Counseling</p>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="300">
+                    <img class="w-full h-64 object-cover" src="http://static.photos/education/640x360/5" alt="2022 January Batch">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-medium text-gray-900">2022 January Batch</h3>
+                        <p class="mt-1 text-sm text-gray-600">Rahul Sir (4th Officer) in Camp</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-blue-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
+                        Contact <span class="text-teal-300">Goodway Maritime</span>
+                    </h2>
+                    <p class="mt-4 text-lg text-blue-200">
+                        Reach out to us for any queries or to begin your maritime journey.
+                    </p>
+                    <div class="mt-8 space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i data-feather="map-pin" class="h-6 w-6 text-teal-300"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium">Office Palakkad</h3>
+                                <p class="mt-1 text-blue-200">
+                                    2nd floor, Sherin's complex, Thanavu, Olavakode<br>
+                                    Palakkad, Kerala 678002
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i data-feather="phone" class="h-6 w-6 text-teal-300"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium">Phone</h3>
+                                <p class="mt-1 text-blue-200">
+                                    8136993640, 8714028193
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i data-feather="mail" class="h-6 w-6 text-teal-300"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium">Email</h3>
+                                <p class="mt-1 text-blue-200">
+                                    goodwaymaritime@gmail.com
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i data-feather="globe" class="h-6 w-6 text-teal-300"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium">Website</h3>
+                                <p class="mt-1 text-blue-200">
+                                    www.goodwaymaritime.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 lg:mt-0" data-aos="fade-left">
+                    <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                        <div class="px-6 py-8 sm:p-10">
+                            <h3 class="text-2xl font-bold text-gray-900">Send us a message</h3>
+                            <form id="contact-form" class="mt-8 space-y-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                                    <input type="text" id="name" name="from_name" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 text-black">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                                    <input type="email" id="email" name="reply_to" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 text-black">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 text-black">
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                                    <textarea id="message" name="message" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 text-black"></textarea>
+                                </div>
+                                <div>
+                                    <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition duration-300">
+                                        Send Message
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apply" class="py-16 bg-teal-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl" data-aos="fade-up">
+                Ready to Begin Your Maritime Journey?
+            </h2>
+            <p class="mt-4 text-xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Apply now to secure your spot in our next batch and take the first step towards a rewarding career at sea.
+            </p>
+            <div class="mt-8" data-aos="fade-up" data-aos-delay="200">
+                <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-teal-600 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 transition duration-300">
+                    Apply Now
+                    <i data-feather="arrow-right" class="ml-2 h-5 w-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold">Goodway Maritime</h3>
+                    <p class="mt-4 text-gray-400">
+                        Established in 2019, we've successfully guided 180 students across 7 batches towards rewarding maritime careers.
+                    </p>
+                    <div class="mt-6 flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-teal-400">
+                            <i data-feather="facebook" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-teal-400">
+                            <i data-feather="instagram" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-teal-400">
+                            <i data-feather="twitter" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-teal-400">
+                            <i data-feather="linkedin" class="h-6 w-6"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold">Quick Links</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-teal-400">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-teal-400">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-teal-400">Services</a></li>
+                        <li><a href="#courses" class="text-gray-400 hover:text-teal-400">Courses</a></li>
+                        <li><a href="#admission" class="text-gray-400 hover:text-teal-400">Admission</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold">Courses</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">GP Rating</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">ETO</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">BSc Nautical Science</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">B-Tech Marine Engineering</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">DNS</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold">Contact Info</h3>
+                    <ul class="mt-4 space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i data-feather="map-pin" class="h-5 w-5 mr-2 mt-0.5 text-teal-400"></i>
+                            <span>2nd floor, Sherin's complex, Thanavu, Olavakode, Palakkad, Kerala 678002</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="h-5 w-5 mr-2 text-teal-400"></i>
+                            <span>8136993640, 8714028193</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="h-5 w-5 mr-2 text-teal-400"></i>
+                            <span>goodwaymaritime@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-800">
+                <p class="text-gray-400 text-sm text-center">
+                    &copy; 2023 Goodway Marine Training and Services. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('u73rYSkZTBePpt4Gu');
+        })();
+        
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+    
+                // These IDs are from the EmailJS Service and Template you'll create
+                const serviceID = 'service_mwlz2h2';
+                const templateID = 'template_j6vo8v9'; // Replace with your Template ID from EmailJS
+                
+                // Show a "sending" message
+                const button = event.target.querySelector('button');
+                const originalText = button.innerHTML;
+                button.innerHTML = 'Sending...';
+                button.disabled = true;
+    
+                emailjs.sendForm(serviceID, templateID, this)
+                    .then(() => {
+                        alert('Your message has been sent successfully!');
+                        button.innerHTML = originalText;
+                        button.disabled = false;
+                        this.reset();
+                    }, (error) => {
+                        alert('Oops! Something went wrong. Please try again later.');
+                        console.error('EmailJS error:', error);
+                        button.innerHTML = originalText;
+                        button.disabled = false;
+                    });
+            });
+        }
+    </script>
+
+    <script>
+        // Initialize animations and effects
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        feather.replace();
+        
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+        
+        // Vanta.js background effect
+        VANTA.WAVES({
+            el: "#vanta-waves",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x1a5a6c,
+            shininess: 50.00,
+            waveHeight: 20.00,
+            waveSpeed: 0.75,
+            zoom: 0.65
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Dark/Light Mode Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleBtnMobile = document.getElementById('theme-toggle-mobile');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        const sunIconMobile = document.getElementById('sun-icon-mobile');
+        const moonIconMobile = document.getElementById('moon-icon-mobile');
+
+        // Check for saved theme preference or system preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            document.body.classList.add('dark-mode');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+            sunIconMobile.classList.remove('hidden');
+            moonIconMobile.classList.add('hidden');
+        } else {
+            document.body.classList.remove('dark-mode');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+            sunIconMobile.classList.add('hidden');
+            moonIconMobile.classList.remove('hidden');
+        }
+
+        function toggleTheme() {
+            if (document.body.classList.contains('dark-mode')) {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                sunIconMobile.classList.add('hidden');
+                moonIconMobile.classList.remove('hidden');
+            } else {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                sunIconMobile.classList.remove('hidden');
+                moonIconMobile.classList.add('hidden');
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        themeToggleBtnMobile.addEventListener('click', toggleTheme);
+    </script>
+</body>
+</html>
